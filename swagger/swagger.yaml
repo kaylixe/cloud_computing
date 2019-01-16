@@ -1,0 +1,81 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Computer Info"
+  description: "A simple service to get Computer Information using swagger-2.0 specification and codegen"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    name: "Felix Kikaya"
+    email: "fkikaya@iu.edu
+  license:
+name: "Apache"
+host: "localhost:8080"
+basePath: "/api"
+schemes:
+  - "http"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+paths:
+  /cpu:
+    get:
+      description: "Returns CPU Information of the Hosting Server"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "CPU Info"
+          schema:
+            $ref: "#/definitions/CPU"
+        "400":
+          description: error while getting CPU information
+  /disk:
+    get:
+      description: "Returns Information of the Hosting Server's Disk"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "DISK Info"
+          schema:
+            $ref: "#/definitions/DISK"
+        "400":
+          description: error while getting disk info
+  /memory:
+    get:
+      description: "Returns RAM Information of the Hosting Server"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "MEMORY Info"
+          schema:
+            $ref: "#/definitions/MEMORY"
+        "400":
+          description: error while getting Memory info
+
+definitions:
+  CPU:
+    type: "object"
+    required:
+      - "model"
+    properties:
+      model:
+        type: "string"
+
+  DISK:
+    type: "object"
+    required:
+      - "model"
+    properties:
+      model:
+        type: "string"
+
+  MEMORY:
+    type: "object"
+    required:
+      - "model"
+    properties:
+      model:
+        type: "string"
